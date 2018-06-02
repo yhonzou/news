@@ -4,7 +4,7 @@
 扫描二维码后点击页面左上角x直接跳转到safari打开
 支持微信，qq，支付宝，节点添加及网页等跳转打开
 @honzou改编
-2018/05/11
+2018/06/02 更新了扫红牛等HTTP跳转错误，改到微信重扫跳转
 '''
 
 from objc_util import *
@@ -74,7 +74,7 @@ def main():
 		url= '\n'.join(found_codes)
 		url1= str.lower(url)
 		#将所有链接都转换为小写str.upper()改为大写
-		
+
 		if 'wechat' in url:
 			webbrowser.open('weixin://scanqrcode')
 		elif 'alipay' in url1:
@@ -90,13 +90,14 @@ def main():
 			webbrowser.open(url)
 		elif 'ss:' in url:
 			webbrowser.open(url)
-			
-			
+
+
 		else:
 			if 'http' in url:
 				webbrowser.open_new('safari-'+url)
-        elif 'HTTP' in url:
+			elif 'HTTP' in url:
 				webbrowser.open('weixin://scanqrcode')
+				
 			else:
 				console.alert('⚠️ 该二维码已失效')
 			#break
