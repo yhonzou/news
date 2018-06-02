@@ -95,6 +95,8 @@ def main():
 		else:
 			if 'http' in url:
 				webbrowser.open_new('safari-'+url)
+        elif 'HTTP' in url:
+				webbrowser.open('weixin://scanqrcode')
 			else:
 				console.alert('⚠️ 该二维码已失效')
 			#break
